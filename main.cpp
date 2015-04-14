@@ -51,7 +51,10 @@ int main(int argc, char **argv)
             break;
         }
         printf("read %d bytes: ", count);
-        for (int i = 0; i < count; ++i) putchar(buf[i]);
+        for (int i = 0; i < count; ++i) {
+            printf("%02x ", 0xff&buf[i]);
+            if (i && i % 20 == 0) printf("\n          ");
+        }
         putchar('\n');
         
     } while (1);
